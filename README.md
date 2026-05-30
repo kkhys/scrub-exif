@@ -76,7 +76,7 @@ import { stripJpeg, stripPng, isJpeg, isPng, detectFormat } from "scrub-exif";
 
 | Format | Removed | Kept |
 | --- | --- | --- |
-| JPEG | `APP1` (Exif/GPS, XMP), `APP13` (IPTC/Photoshop), `COM` (comments) | `APP0` (JFIF), `APP2` (ICC profile), `APP14` (Adobe), and all image data |
+| JPEG | `APP1` (Exif/GPS, XMP), `APP13` (IPTC/Photoshop), every other `APPn` vendor segment, `COM` (comments) | `APP0` (JFIF), `APP2` (ICC profile), `APP14` (Adobe), and all image data |
 | PNG | `eXIf`, `tEXt`, `zTXt`, `iTXt` (XMP), `tIME` | `IHDR`, `PLTE`, `iCCP`, `sRGB`, `gAMA`, `cHRM`, `pHYs`, `IDAT`, `IEND`, … |
 
 Unknown formats are returned unchanged.
