@@ -53,6 +53,29 @@ when metadata is still present.
 1/3 files stripped (-29953 bytes).
 ```
 
+## Use as a pre-commit hook (lefthook)
+
+Strip metadata automatically every time images are committed. Install
+`scrub-exif` as a dev dependency and add a command to your
+[lefthook](https://lefthook.dev) config:
+
+```yaml
+# lefthook.yml
+pre-commit:
+  commands:
+    scrub-exif:
+      glob: "*.{jpg,jpeg,png,JPG,JPEG,PNG}"
+      run: npx scrub-exif {staged_files}
+      stage_fixed: true
+```
+
+`stage_fixed: true` re-stages the cleaned files, so the commit always lands
+without metadata. `{staged_files}` passes only the staged images matching the
+glob, keeping the hook fast.
+
+> With pnpm/Yarn you can swap `npx` for `pnpm exec` / `yarn`. The hook activates
+> after `lefthook install` runs (e.g. via a `prepare` script on install).
+
 ## Programmatic API
 
 ```ts
