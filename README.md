@@ -1,5 +1,9 @@
 # scrub-exif
 
+[![npm version](https://img.shields.io/npm/v/scrub-exif.svg)](https://www.npmjs.com/package/scrub-exif)
+[![CI](https://github.com/kkhys/scrub-exif/actions/workflows/ci.yml/badge.svg)](https://github.com/kkhys/scrub-exif/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/scrub-exif.svg)](./LICENSE)
+
 Losslessly strip Exif/GPS and all other metadata from JPEG and PNG files, keeping only the color profile.
 
 - **Lossless** — pixel data is never re-encoded. Only metadata segments/chunks are removed; every remaining byte (including color profiles) is preserved.
