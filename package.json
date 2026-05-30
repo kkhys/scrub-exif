@@ -1,7 +1,7 @@
 {
   "name": "scrub-exif",
   "version": "0.1.0",
-  "description": "Losslessly strip Exif/GPS/XMP/IPTC metadata from JPEG and PNG. Zero dependencies, no native binaries, runs anywhere.",
+  "description": "Losslessly strip Exif/GPS and all other metadata from JPEG and PNG, keeping only the color profile. Zero dependencies, no native binaries, runs anywhere.",
   "keywords": [
     "exif",
     "gps",
