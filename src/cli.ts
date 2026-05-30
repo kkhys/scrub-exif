@@ -11,7 +11,7 @@ interface Options {
   quiet: boolean;
 }
 
-const HELP = `scrub-exif — losslessly strip Exif/GPS/XMP/IPTC metadata from JPEG & PNG
+const HELP = `scrub-exif — losslessly strip Exif/GPS and all other metadata from JPEG & PNG
 
 Usage:
   scrub-exif <files|dirs...> [options]
