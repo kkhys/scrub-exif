@@ -1,6 +1,6 @@
 # scrub-exif
 
-Losslessly strip Exif/GPS/XMP/IPTC metadata from JPEG and PNG files.
+Losslessly strip Exif/GPS and all other metadata from JPEG and PNG files, keeping only the color profile.
 
 - **Lossless** — pixel data is never re-encoded. Only metadata segments/chunks are removed; every remaining byte (including color profiles) is preserved.
 - **Zero dependencies** — nothing is installed alongside it.
@@ -14,9 +14,10 @@ Photos carry hidden metadata — most importantly **GPS coordinates** that can r
 | --- | --- | --- | --- |
 | `exiftool` | ✅ everything | ✅ | ❌ (Perl binary) |
 | `sharp` | ✅ on re-encode | ❌ recompresses | ❌ (native) |
-| **scrub-exif** | ✅ Exif/GPS/XMP/IPTC | ✅ | ✅ |
+| **scrub-exif** | ✅ all but ICC profile | ✅ | ✅ |
 
-`scrub-exif` removes the metadata that matters for privacy while leaving the
+`scrub-exif` removes every metadata block — Exif/GPS, XMP, IPTC, vendor and
+comment segments — while keeping the ICC color profile and leaving the
 compressed image data byte-for-byte intact.
 
 ## Install
