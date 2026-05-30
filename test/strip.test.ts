@@ -51,6 +51,16 @@ describe("stripJpeg", () => {
     expect(data).toEqual(clean);
   });
 
+  it("removes vendor APP segments not needed for rendering (e.g. APP12)", () => {
+    const clean = buildJpeg();
+    const dirty = buildJpeg([
+      jpegSegment(0xec, new Uint8Array([0x44, 0x75, 0x63, 0x6b, 0x79])), // APP12 'Ducky'
+    ]);
+    const { data, removed } = stripJpeg(dirty);
+    expect(removed).toEqual(["APP12"]);
+    expect(data).toEqual(clean);
+  });
+
   it("keeps color-related segments (APP0/APP2/APP14)", () => {
     const withColor = buildJpeg([
       jpegSegment(0xe2, new Uint8Array([0x49, 0x43, 0x43])), // APP2 ICC
